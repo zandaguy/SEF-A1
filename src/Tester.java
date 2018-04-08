@@ -6,8 +6,12 @@ public class Tester {
 		
 		Coordinator coordinator = new Coordinator();
 		CasualStaff staff = new CasualStaff();
+		Administrator admin = new Administrator();
+		Approver approver = new Approver();
 		
-		driver.displayOptions(coordinator);
+		//driver.displayOptions(coordinator);
 		driver.displayOptions(staff);
+		//driver.displayOptions(admin);
+		//driver.displayOptions(approver);
 	}
 }
