@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class LoginHandler {
 
-  public void login() {
+  public User login() {
     Scanner input = new Scanner(System.in);
     
     String Username;
@@ -22,7 +22,10 @@ public class LoginHandler {
     }else{
       System.out.println("Username/Password incorrect, please try again");
     }
-    
+
+    User casual = new CasualStaff();
+
+    return casual;
   }
   
   

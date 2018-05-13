@@ -2,14 +2,13 @@ package Model;
 
 public class Administrator extends User{
 
+	//Needs to be a list of some sort
 	private String approvedRequests;
-	
+
+	//TODO Add timetable implementation, add way to edit timetable with approved requests.
 	public void updateData() {};
-	
+
+	//Should just print the 'approvedRequests' list
 	public void viewApprovals() {};
 	
-	public void viewMenu() {
-		System.out.println("Model.Administrator actions:");
-		System.out.println("1. Update data\n2. View approvals");
-	}
 }
