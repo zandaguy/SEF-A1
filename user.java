@@ -11,10 +11,10 @@ public class user {
 		private String password;
 		private String[][] account = {{"jesper", "abc123","casualStaff"},{"christian", "abc123","approver"}};
 
-		public user(String user, String pass, String staff){
-		    username = user;
-		    password = pass;
-		    staffType = staff;
+		public user(String user, String pass, String staffType){
+		    this.username = user;
+		    this.password = pass;
+		    this.staffType = staffType;
 		}
 
 		public boolean req(){
