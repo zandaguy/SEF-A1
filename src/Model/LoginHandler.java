@@ -10,22 +10,19 @@ public class LoginHandler {
     String Username;
     String Password;
     
+    System.out.println("Log in");
     System.out.println("Username: ");
     Username = input.nextLine();
     
     System.out.println("Password: ");
     Password = input.nextLine();
 
+    user check = new user(Username, Password);
     
-    if(Username.equals("...") && (Password.equals("..."))) {
-            System.out.println("logged in");
-    }else{
-      System.out.println("Username/Password incorrect, please try again");
-    }
-
-    User casual = new CasualStaff();
-
-    return casual;
+    if(chek.auth())
+        System.out.println("You are now logged in");
+    
+    
   }
   
   
