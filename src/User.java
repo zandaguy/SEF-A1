@@ -6,6 +6,13 @@ public abstract class User {
 	private String id;
 	private String staffType;
 	
+	public User(String name, String id) {
+
+		this.name = name;
+		this.id = id;
+		
+	}
+	
 	public void viewMenu() {};
 	public void selectAction() {};
 	
