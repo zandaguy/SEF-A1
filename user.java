@@ -23,6 +23,18 @@ public class user {
 		    else
 		        return false;
 		}
+	
+		public void viewMenu() {};
+		public void selectAction() {};
+	
+		public int readMenuInput() {
+			Scanner scanner = new Scanner(System.in);
+		
+			System.out.print("Enter a valid number to select action: ");
+			int input = scanner.nextInt();
+		
+			return input;
+	}
 
 		}
 
