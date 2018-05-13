@@ -1,3 +1,4 @@
+package Model;
 
 public class Administrator extends User{
 
@@ -8,7 +9,7 @@ public class Administrator extends User{
 	public void viewApprovals() {};
 	
 	public void viewMenu() {
-		System.out.println("Administrator actions:");
+		System.out.println("Model.Administrator actions:");
 		System.out.println("1. Update data\n2. View approvals");
 	}
 }

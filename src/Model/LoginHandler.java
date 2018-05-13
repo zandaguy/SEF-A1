@@ -1,8 +1,10 @@
+package Model;
+
 import java.util.Scanner;
 
 public class LoginHandler {
 
-  public static void main(String[] args){
+  public void login() {
     Scanner input = new Scanner(System.in);
     
     String Username;
@@ -15,10 +17,10 @@ public class LoginHandler {
     Password = input.nextLine();
 
     
-    if(Username.equals("...") && (Password.equals("...)){
+    if(Username.equals("...") && (Password.equals("..."))) {
             System.out.println("logged in");
     }else{
-      System.out.println("Username/Password incorrect, please try again")
+      System.out.println("Username/Password incorrect, please try again");
     }
     
   }
