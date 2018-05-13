@@ -4,26 +4,30 @@ import java.util.Scanner;
 
 public class LoginHandler {
 
-  public User login() {
-    Scanner input = new Scanner(System.in);
-    
-    String Username;
-    String Password;
-    
-    System.out.println("Log in");
-    System.out.println("Username: ");
-    Username = input.nextLine();
-    
-    System.out.println("Password: ");
-    Password = input.nextLine();
+	    Scanner input = new Scanner(System.in);
 
-    user check = new user(Username, Password);
-    
-    if(chek.auth())
-        System.out.println("You are now logged in");
-    
-    
-  }
+	    String id;
+	    String password;
+	    String staff = null;
+
+	    System.out.println("Log in");
+	    System.out.println("Username: ");
+	    id = input.nextLine();
+
+	    System.out.println("Password: ");
+	    password = input.nextLine();
+
+	    user check = new user(id, password, staff);
+
+	    if(check.req()) 
+	        System.out.println("You are logged in");
+	    else 
+	    	System.out.println("You are not logged in");
+
+
+
+	}
+	
   
   
   
