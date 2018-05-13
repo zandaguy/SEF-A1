@@ -9,6 +9,7 @@ public class Payroll {
     public Payroll(float hourlyRate, float hours) {
         this.hourlyRate = hourlyRate;
         this.shiftHours = hours;
+        
     }
 
     public float getRate() {
