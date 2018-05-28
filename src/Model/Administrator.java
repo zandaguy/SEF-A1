@@ -9,6 +9,8 @@ public class Administrator extends User{
 	public void updateData() {};
 
 	//Should just print the 'approvedRequests' list
-	public void viewApprovals() {};
+	public void viewApprovals() {
+
+	};
 	
 }

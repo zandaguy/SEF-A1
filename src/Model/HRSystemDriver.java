@@ -6,67 +6,103 @@ public class HRSystemDriver {
 
 	private User activeUser;
 	private Menu menu = new Menu();
+	private boolean loggedIn;
 
 	public void runApplication() {
 
-		menu.displayLogin();
+		while(true) {
+			activeUser = login();
+			loggedIn = true;
 
-		activeUser = login(new LoginHandler());
-
-		menu.displayOptions(activeUser);
-		selectAction(menu.readMenuInput());
-
+			while (loggedIn) {
+				menu.displayOptions(activeUser);
+				selectAction(menu.readMenuInput(), activeUser);
+			}
+		}
 	}
 
-	public User login(LoginHandler handler) {
-        return handler.login();
+	public User login() {
+		User user = null;
+		LoginHandler handler = new LoginHandler();
+
+		while(user == null) {
+			menu.displayUser();
+			handler.setUsername(menu.readStringInput());
+			menu.displayPass();
+			handler.setPassword(menu.readStringInput());
+
+			user = handler.login();
+
+			if(user == null) {
+				menu.displayMessage("Username or password incorrect");
+			}
+		}
+
+		return user;
 	}
 
-	//TODO add timetable display, might cut this
-	public void manageTimetable(Administrator user) {
-		//menu.displayTimetable;
+	public void selectAction(int input, User user) {
+		if(user.getClass().equals(CasualStaff.class)) {
+			selectCasualAction(input, (CasualStaff) user);
+		}
+		if(user.getClass().equals(Coordinator.class)) {
+			selectCoordAction(input, (Coordinator) user);
+		}
+		if(user.getClass().equals(Administrator.class)) {
+			selectAdminAction(input, (Administrator) user);
+		}
+		if(user.getClass().equals(Approver.class)) {
+			selectApproverAction(input, (Approver) user);
+		}
 	}
 
-	public void viewApprovals(Administrator user) {
-		user.viewApprovals();
-	}
-
-	public void updateTimetable(Administrator user) {
-		user.updateData();
-	}
-
-	public void allocateStaff(Coordinator user) {
-		user.allocateStaff();
-	}
-
-	public void manageRequests(Coordinator user) {
-		//TODO Add relevant class to coordinator
-	}
-
-	public void setupActivity(Coordinator user) {
-		user.setupActivity();
-	}
-
-	public void applyForCourses(CasualStaff user) {
-		user.applyCourse();
-	}
-
-	public void setAvailableTimes(CasualStaff user) {
-		user.setupAvailability();
-	}
-
-	public void viewAllocations(CasualStaff user) {
-		user.viewAllocation();
-	}
-
-    public void selectAction(int input) {
+    public void selectCasualAction(int input, CasualStaff user) {
 
         if(input == 1) {
-            applyForCourses((CasualStaff)activeUser);
+        	menu.displayMessage(user.applyCourse(new Coordinator(), "resume", "name", "id"));
         } else if(input == 2) {
-            setAvailableTimes((CasualStaff)activeUser);
+            user.setupAvailability();
         } else if(input == 3) {
-            viewAllocations((CasualStaff)activeUser);
+        	user.viewAllocation();
+        } else if(input == 4) {
+        	logout();
+		}
+    }
+
+    public void selectAdminAction(int input, Administrator user) {
+
+        if(input == 1) {
+           	user.updateData();
+        } else if(input == 2) {
+        	user.viewApprovals();
+        } else if(input == 3) {
+        	logout();
         }
     }
+
+   	public void selectCoordAction(int input, Coordinator user) {
+
+		if(input == 1) {
+		    user.allocateStaff();
+        } else if(input == 2) {
+		    user.setupActivity();
+        } else if(input == 3) {
+		    user.sendCourseDetails();
+        } else if(input == 4) {
+			logout();
+		}
+    }
+
+    public void selectApproverAction(int input, Approver user) {
+
+		if(input == 1) {
+		    user.viewRequests();
+        } else if(input == 2) {
+			logout();
+		}
+    }
+
+    public void logout() {
+		loggedIn = false;
+	}
 }

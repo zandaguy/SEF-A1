@@ -6,28 +6,32 @@ import java.util.Scanner;
 
 public class Menu {
 
-    public void displayLogin() {
-
+    public void displayUser() {
+        System.out.println("Username: ");
     }
 
+    public void displayPass() {
+		System.out.println("Password: ");
+	}
+
     public void displayAdminOptions() {
-    	System.out.println("Model.Administrator actions:");
-		System.out.println("1. Update data\n2. View approvals");
+    	System.out.println("Administrator actions:");
+		System.out.println("1. Update data\n2. View approvals\n3. Logout");
 	}
 
     public void displayCoordinatorOptions() {
-    	System.out.println("Course Model.Coordinator actions:");
-		System.out.println("1. Allocate staff\n2. Set up activity\n3. Send for approval");
+    	System.out.println("Coordinator actions:");
+		System.out.println("1. Allocate staff\n2. Set up activity\n3. Send for approval\n4. Logout");
 	}
 
     public void displayApproverOptions() {
-        System.out.println("Model.Approver actions:");
-		System.out.println("1. View requests");
+        System.out.println("Approver actions:");
+		System.out.println("1. View requests\n2. Logout");
 	}
 
     public void displayCasualOptions() {
         System.out.println("Casual staff actions:");
-		System.out.println("1. Apply for course\n2. Select availabilities\n3. View allocations");
+		System.out.println("1. Apply for course\n2. Select availabilities\n3. View allocations\n4. Logout");
     }
 
     public void displayOptions(User user) {
@@ -52,6 +56,17 @@ public class Menu {
 		int input = scanner.nextInt();
 
 		return input;
+	}
+
+	public String readStringInput() {
+    	Scanner scanner = new Scanner(System.in);
+		String input = scanner.nextLine();
+
+		return input;
+	}
+
+	public void displayMessage(String message) {
+    	System.out.println(message);
 	}
 
 
